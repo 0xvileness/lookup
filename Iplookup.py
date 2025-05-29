@@ -1,5 +1,9 @@
 import requests
 
+ip_address = requests.get ('http://api.ipify.org').text
+
+print(ip_address)
+
 print()
 print("⣿⣿⣿⣿⠿⡿⠟⠛⣋⣉⣥⣤⣶⠆⢸⣿⡇⣿⣿⣿⣿⣿⡏⠻⣿⣿⣿⣿⣷⡙⡏⣿⣿⣿⣿⣿⣷⡌⢿⣷⡘⣿⣿⣿⣿⡇⣿⣿⣿⣿ ")
 print("⣿⣿⣶⣿⣿⣿⢰⣿⡏⣼⣿⣿⣿⠀⢸⣿⡇⢿⣿⣿⣿⣿⡇⠇⢹⣿⣿⣿⣏⠳⠘⢹⣿⡈⢿⣿⣿⠻⡌⣿⣿⡜⣿⣿⣿⡇⣿⣿⣿⣿ ")
@@ -29,21 +33,10 @@ print("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣮⠛⢿⣿⣿⣿⣿⣿⣷⠌⣿⠀�
 print("                    Made By @OxyCrime                  ")      
 print()              
                                                  
-def get_ip():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    return response["ip"]
+response = requests-get(
+f'http://ip-api.com/json/{ip_address)?fields=status,message,country,countryCode,
+region, regiorName, city, zip, lat, lon, timezone, currency, isp,org, as, mobile, proxy. hosting, query'). json ()
 
 
-def get_location():
-    ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-    location_data = {
-        "ip": ip_address,
-        "city": response.get("city"),
-        "region": response.get("region"),
-        "country": response.get("country_name")
-    }
-    return location_data
-
-
-print(get_location())
+print (response)
+print(response ['city'])
