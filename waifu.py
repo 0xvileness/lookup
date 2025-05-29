@@ -31,14 +31,12 @@ print("                    Made By @OxyCrime                  ")
 print()              
 
 while True:
-print("_______________________________")
 ip = input("Enter The IP: ")
 url = "http://ip-api.com/json/"
 response = urllib2.urlopen(url + ip)
 data = response.read()
 values = json.loads(data)
 
-print("_______________________________")
 print("IP: " + values["query"])
 print("City: " + values["city"])
 print("ISP: " + values["isp"])
