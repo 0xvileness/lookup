@@ -1,3 +1,6 @@
+import os 
+import time
+import json
 import requests
 
 print()
@@ -29,21 +32,22 @@ print("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣮⠛⢿⣿⣿⣿⣿⣿⣷⠌⣿⠀�
 print("                    Made By @OxyCrime                  ")      
 print()              
                                                  
-def get_ip():
-    response = requests.get('https://api64.ipify.org?format=json').json()
-    return response["ip"]
+while True:
+os.system('cls')
+print(logo)
+os.system( 'title Vils IP - by oxy')
+x = input('Press Enter to Start!')
 
-
-def get_location():
-    ip_address = get_ip()
-    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
-    location_data = {
-        "ip": ip_address,
-        "city": response.get("city"),
-        "region": response.get("region"),
-        "country": response.get("country_name")
-    }
-    return location_data
-
-
-print(get_location())
+if x == '':
+os.system("cls')
+IP = input('ENTER THE IP: ')
+r = requests.get(f'http://ip-api.com/json/{IP}')
+data = r.json()
+print('RESULTS\n')
+print('')
+print(f'Country: {data['country']}')
+print(f'Region: {data['regionName']}')
+print(f'City: {data['city']}')
+print(f'Zip: {data['zip']}')
+print (f'ISP: {data['isp']}')
+pause = input("Enter IP to Continue..")
