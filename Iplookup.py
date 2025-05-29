@@ -34,7 +34,7 @@ print()
 
 
 while True:
-ip = input("What is your target IP: ")
+ip = input("What is your target ip: ")
 url = "http://ip-api.com/json/"
 response = urllib2.urlopen(url + ip)
 data = response.read()
