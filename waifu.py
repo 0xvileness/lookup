@@ -1,7 +1,5 @@
-import os 
-import time
+import urllib.request as urllib2 
 import json
-import requests
 
 print()
 print("⣿⣿⣿⣿⠿⡿⠟⠛⣋⣉⣥⣤⣶⠆⢸⣿⡇⣿⣿⣿⣿⣿⡏⠻⣿⣿⣿⣿⣷⡙⡏⣿⣿⣿⣿⣿⣷⡌⢿⣷⡘⣿⣿⣿⣿⡇⣿⣿⣿⣿ ")
@@ -31,23 +29,20 @@ print("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡱⣶⣤⣄⣀⣀⣀⣀⣀⠸⣟⣇⠸�
 print("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣮⠛⢿⣿⣿⣿⣿⣿⣷⠌⣿⠀⣤⣄⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⢐⣿⣿⣿⣿⣿ ")          
 print("                    Made By @OxyCrime                  ")      
 print()              
-                                                 
-while True:
-os.system('cls')
-print(logo)
-os.system( 'title Vils IP - by oxy')
-x = input('Press Enter to Start!')
 
-if x == '':
-os.system("cls')
-IP = input('ENTER THE IP: ')
-r = requests.get(f'http://ip-api.com/json/{IP}')
-data = r.json()
-print('RESULTS\n')
-print('')
-print(f'Country: {data['country']}')
-print(f'Region: {data['regionName']}')
-print(f'City: {data['city']}')
-print(f'Zip: {data['zip']}')
-print (f'ISP: {data['isp']}')
-pause = input("Enter IP to Continue..")
+while True:
+print("_______________________________")
+ip = input("Enter The IP: ")
+url = "http://ip-api.com/json/"
+response = urllib2.urlopen(url + ip)
+data = response.read()
+values = json.loads(data)
+
+print("_______________________________")
+print("IP: " + values["query"])
+print("City: " + values["city"])
+print("ISP: " + values["isp"])
+print("Country: " + values["country"])
+print("Region: " + values["region"])
+print("Timezone: " + values["timezome"])
+break 
